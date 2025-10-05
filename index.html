@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LuaGen – Free Lua Generator for Steam Games</title>
+
+        <!-- SEO Meta -->
+        <meta
+            name="description"
+            content="LuaGen is the best free Lua generator tool for Steam games. Generate and download Lua files instantly using Game ID. Access over 32,000 Lua files for popular Steam games."
+        />
+        <meta
+            name="keywords"
+            content="Lua generator, Steam tools, Lua files, LuaGen, Steam game Lua, Lua mod download, game modding, Steam mods, game scripts, game customization, Steam ID lookup, Lua scripts"
+        />
+        <meta name="author" content="LuaGen Team" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+
+        <!-- Open Graph / Social Media -->
+        <meta
+            property="og:title"
+            content="LuaGen – Free Lua Generator for Steam Games"
+        />
+        <meta
+            property="og:description"
+            content="Generate and download Lua files for Steam games instantly. LuaGen is free and ad-free."
+        />
+        <meta property="og:url" content="https://luagen.pages.dev" />
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="LuaGen – Free Lua Generator" />
+        <meta
+            name="twitter:description"
+            content="Download Lua files for Steam games using LuaGen. Fast, free, ad-free."
+        />
+
+        <!-- Canonical -->
+        <link rel="canonical" href="https://luagen.pages.dev/" />
+
+        <!-- Schema.org JSON-LD -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "LuaGen",
+                "url": "https://luagen.pages.dev",
+                "description": "Best Lua generator for Steam games. Free Lua files downloader.",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "LuaGen Team"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "ratingCount": "1256"
+                },
+                "mainEntity": {
+                    "@type": "SoftwareApplication",
+                    "name": "LuaGen",
+                    "operatingSystem": "Any",
+                    "applicationCategory": "GameModding",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "USD"
+                    }
+                }
+            }
+        </script>
+
+        <!-- Rich Snippets FAQ -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How do I install the Lua files?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "1. Download and extract the ZIP file. 2. Download Steam Tools from steamtools.net and install it. 3. Open Steam Tools. 4. Select all files from the extracted folder and drag them onto the Steam Tools icon. 5. Restart Steam for the changes to take effect."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I find my game's Steam ID?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Visit the game's Steam store page and look at the URL. The number in the URL is your game's ID. Alternatively, use steamdb.info to search for your game."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are these Lua files safe to use?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, all our Lua files are scanned and verified. However, always use game modifications responsibly and at your own discretion."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What if I can't find my game?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "If you can't find your game's Lua files, please email us. We're constantly expanding our collection with help from the community."
+                        }
+                    }
+                ]
+            }
+        </script>
+
+        <!-- TailwindCSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Google Material Icons -->
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <style>
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+            .accordion-content.open {
+                max-height: 1000px;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col">
+        <!-- Navbar -->
+        <nav
+            class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-900/95 backdrop-blur-sm"
+        >
+            <div class="max-w-7xl mx-auto px-6 py-4 text-center">
+                <h1
+                    class="text-2xl font-bold"
+                    style="
+                        font-family:
+                            Impact, &quot;Arial Black&quot;, sans-serif;
+                    "
+                >
+                    LuaGen
+                </h1>
+                <p class="text-xs text-zinc-500 mt-1">
+                    Ad free Steam tools – Lua files downloader
+                </p>
+            </div>
+        </nav>
+
+        <!-- Main -->
+        <div class="flex-grow flex items-center justify-center p-6 pt-8">
+            <div class="w-full max-w-2xl space-y-6">
+                <!-- Generator Card -->
+                <div class="border border-zinc-800 bg-zinc-900 rounded-lg p-6">
+                    <!-- Header -->
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-icons text-zinc-400"
+                            >description</span
+                        >
+                        <h1 class="text-xl font-medium">Lua Generator</h1>
+                    </div>
+                    <p class="text-zinc-400 text-sm mb-6">
+                        Enter a Steam Game ID to generate the Lua file archive
+                        instantly.
+                    </p>
+
+                    <!-- Input -->
+                    <div class="space-y-4">
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-2.5 text-zinc-500"
+                                >sports_esports</span
+                            >
+                            <input
+                                id="gameId"
+                                type="text"
+                                placeholder="Game ID"
+                                class="w-full pl-10 pr-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-600"
+                            />
+                        </div>
+
+                        <!-- Error -->
+                        <div
+                            id="errorBox"
+                            class="hidden border border-red-800 bg-red-950/50 p-2 rounded-md text-red-400 text-sm flex items-center gap-2"
+                        >
+                            <span class="material-icons text-red-400"
+                                >error</span
+                            >
+                            <span id="errorMsg"></span>
+                        </div>
+
+                        <!-- Button -->
+                        <button
+                            id="generateBtn"
+                            class="w-full py-2 px-4 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 font-medium rounded-md transition-colors flex items-center justify-center gap-2"
+                        >
+                            Generate
+                        </button>
+
+                        <!-- Helper Link -->
+                        <div class="text-center text-xs text-zinc-500">
+                            Find your game ID on
+                            <a
+                                href="https://steamdb.info/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-zinc-400 hover:text-zinc-300 underline"
+                                >steamdb.info</a
+                            >
+                        </div>
+                        <div class="text-center text-xs text-zinc-500">
+                            <p>Missing a file or need help?</p>
+                            <p>
+                                Email
+                                <a
+                                    href="mailto:contact@revobd.club"
+                                    class="text-zinc-400 hover:text-zinc-300 underline"
+                                    >contact@revobd.club</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div
+                        id="statusBox"
+                        class="hidden mt-6 p-4 bg-zinc-800 border border-zinc-700 rounded-md"
+                    >
+                        <div class="flex items-center gap-3">
+                            <span class="material-icons animate-spin"
+                                >autorenew</span
+                            >
+                            <div>
+                                <p class="text-sm">
+                                    Processing <span id="statusId"></span>
+                                </p>
+                                <p class="text-xs text-zinc-500">
+                                    This might take a moment...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download -->
+                    <div id="downloadBox" class="hidden mt-6 space-y-4">
+                        <div
+                            class="p-4 bg-zinc-800 border border-zinc-700 rounded-md"
+                        >
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="material-icons text-green-500"
+                                    >check_circle</span
+                                >
+                                <p class="text-sm">Ready for download</p>
+                            </div>
+                            <a
+                                id="downloadLink"
+                                href="#"
+                                download
+                                class="w-full inline-flex items-center justify-center gap-2 py-2 px-4 bg-zinc-700 hover:bg-zinc-600 text-zinc-100 rounded-md transition-colors mb-3"
+                            >
+                                <span class="material-icons">download</span>
+                                Download
+                            </a>
+                            <div id="backupDownloadBox" class="hidden">
+                                <p class="text-sm text-zinc-400 mb-2">
+                                    Backup download available:
+                                </p>
+                                <a
+                                    id="backupDownloadLink"
+                                    href="#"
+                                    download
+                                    class="w-full inline-flex items-center justify-center gap-2 py-2 px-4 bg-zinc-600 hover:bg-zinc-500 text-zinc-100 rounded-md transition-colors"
+                                >
+                                    <span class="material-icons"
+                                        >cloud_download</span
+                                    >
+                                    Backup Download
+                                </a>
+                            </div>
+                        </div>
+                        <button
+                            id="resetBtn"
+                            class="w-full py-2 px-4 text-zinc-400 hover:text-zinc-300 text-sm transition-colors"
+                        >
+                            Generate another file
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Sections -->
+                <div class="space-y-6">
+                    <!-- Why Choose LuaGen? (Collapsible) -->
+                    <div class="accordion">
+                        <button
+                            class="w-full p-4 bg-zinc-800/50 border border-zinc-800 rounded-lg flex items-center justify-between hover:bg-zinc-800/70 transition-colors"
+                        >
+                            <div class="flex items-center gap-2">
+                                <span class="material-icons">stars</span>
+                                <h2 class="text-lg font-medium">
+                                    Why Choose LuaGen?
+                                </h2>
+                            </div>
+                            <span
+                                class="material-icons transform transition-transform"
+                                >expand_more</span
+                            >
+                        </button>
+                        <div
+                            class="accordion-content p-6 bg-zinc-800/30 border border-t-0 border-zinc-800 rounded-b-lg"
+                        >
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-2">
+                                    <span
+                                        class="material-icons text-green-500 text-sm mt-1"
+                                        >check_circle</span
+                                    >
+                                    <div>
+                                        <p class="text-sm">Instant Downloads</p>
+                                        <p class="text-xs text-zinc-500">
+                                            Get your Lua files immediately
+                                            without waiting
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span
+                                        class="material-icons text-green-500 text-sm mt-1"
+                                        >check_circle</span
+                                    >
+                                    <div>
+                                        <p class="text-sm">
+                                            100% Free & Ad-Free
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            No hidden costs or annoying
+                                            advertisements
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span
+                                        class="material-icons text-green-500 text-sm mt-1"
+                                        >check_circle</span
+                                    >
+                                    <div>
+                                        <p class="text-sm">
+                                            Extensive Collection
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            Access to over 32,566 Lua files for
+                                            various Steam games
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Installation Guide (Collapsible) -->
+                    <div class="accordion">
+                        <button
+                            class="w-full p-4 bg-zinc-800/50 border border-zinc-800 rounded-lg flex items-center justify-between hover:bg-zinc-800/70 transition-colors"
+                        >
+                            <div class="flex items-center gap-2">
+                                <span class="material-icons">help</span>
+                                <h2 class="text-lg font-medium">
+                                    How to Install Lua Files
+                                </h2>
+                            </div>
+                            <span
+                                class="material-icons transform transition-transform"
+                                >expand_more</span
+                            >
+                        </button>
+                        <div
+                            class="accordion-content p-6 bg-zinc-800/30 border border-t-0 border-zinc-800 rounded-b-lg"
+                        >
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div
+                                        class="bg-zinc-700 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1"
+                                    >
+                                        <span class="text-sm font-medium"
+                                            >1</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-zinc-200">
+                                            Download & Extract
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            After downloading, right-click the
+                                            ZIP file and select "Extract All" or
+                                            use your preferred extraction tool
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div
+                                        class="bg-zinc-700 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1"
+                                    >
+                                        <span class="text-sm font-medium"
+                                            >2</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-zinc-200">
+                                            Download & Install Steam Tools
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            Download Steam Tools from
+                                            <a
+                                                href="https://www.steamtools.net/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="text-zinc-400 hover:text-zinc-300 underline"
+                                                >steamtools.net</a
+                                            >
+                                            and install it on your computer
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div
+                                        class="bg-zinc-700 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1"
+                                    >
+                                        <span class="text-sm font-medium"
+                                            >3</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-zinc-200">
+                                            Open Steam Tools
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            Launch Steam Tools after
+                                            installation is complete
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div
+                                        class="bg-zinc-700 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1"
+                                    >
+                                        <span class="text-sm font-medium"
+                                            >4</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-zinc-200">
+                                            Select & Drag Files
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            Select all files from the extracted
+                                            folder and drag them onto the Steam
+                                            Tools icon
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div
+                                        class="bg-zinc-700 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1"
+                                    >
+                                        <span class="text-sm font-medium"
+                                            >5</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-zinc-200">
+                                            Restart Steam
+                                        </p>
+                                        <p class="text-xs text-zinc-500">
+                                            Close and restart Steam completely
+                                            for the changes to take effect
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="mt-4 p-3 bg-zinc-900 border border-zinc-700 rounded-md"
+                                >
+                                    <p
+                                        class="text-xs text-zinc-400 flex items-start gap-2"
+                                    >
+                                        <span
+                                            class="material-icons text-amber-500 text-sm"
+                                            >warning</span
+                                        >
+                                        <span
+                                            >Always backup your original files
+                                            before installing new Lua files. Use
+                                            game modifications responsibly and
+                                            at your own risk.</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section (Collapsible) -->
+                    <div class="accordion">
+                        <button
+                            class="w-full p-4 bg-zinc-800/50 border border-zinc-800 rounded-lg flex items-center justify-between hover:bg-zinc-800/70 transition-colors"
+                        >
+                            <div class="flex items-center gap-2">
+                                <span class="material-icons">help_outline</span>
+                                <h2 class="text-lg font-medium">
+                                    Frequently Asked Questions
+                                </h2>
+                            </div>
+                            <span
+                                class="material-icons transform transition-transform"
+                                >expand_more</span
+                            >
+                        </button>
+                        <div
+                            class="accordion-content p-6 bg-zinc-800/30 border border-t-0 border-zinc-800 rounded-b-lg"
+                        >
+                            <div class="space-y-4">
+                                <div>
+                                    <h3
+                                        class="text-sm font-medium text-zinc-200 mb-1"
+                                    >
+                                        How do I install the Lua files?
+                                    </h3>
+                                    <p class="text-xs text-zinc-500">
+                                        Download and extract the ZIP file,
+                                        download Steam Tools from steamtools.net
+                                        and install it, open Steam Tools, select
+                                        all files from the extracted folder and
+                                        drag them onto the Steam Tools icon.
+                                        Finally, restart Steam for the changes
+                                        to take effect.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3
+                                        class="text-sm font-medium text-zinc-200 mb-1"
+                                    >
+                                        How do I find my game's Steam ID?
+                                    </h3>
+                                    <p class="text-xs text-zinc-500">
+                                        Visit the game's Steam store page and
+                                        look at the URL. The number in the URL
+                                        is your game's ID. Alternatively, use
+                                        steamdb.info to search for your game.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3
+                                        class="text-sm font-medium text-zinc-200 mb-1"
+                                    >
+                                        Are these Lua files safe to use?
+                                    </h3>
+                                    <p class="text-xs text-zinc-500">
+                                        Yes, all our Lua files are scanned and
+                                        verified. However, always use game
+                                        modifications responsibly and at your
+                                        own discretion.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3
+                                        class="text-sm font-medium text-zinc-200 mb-1"
+                                    >
+                                        What if I can't find my game?
+                                    </h3>
+                                    <p class="text-xs text-zinc-500">
+                                        If you can't find your game's Lua files,
+                                        please email us. We're constantly
+                                        expanding our collection with help from
+                                        the community.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script -->
+        <script>
+            // Accordion functionality
+            document.querySelectorAll(".accordion button").forEach((button) => {
+                button.addEventListener("click", () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector(
+                        ".material-icons:last-child",
+                    );
+
+                    // Toggle this accordion
+                    content.classList.toggle("open");
+                    icon.style.transform = content.classList.contains("open")
+                        ? "rotate(180deg)"
+                        : "";
+
+                    // Close other accordions
+                    document
+                        .querySelectorAll(".accordion-content")
+                        .forEach((otherContent) => {
+                            if (
+                                otherContent !== content &&
+                                otherContent.classList.contains("open")
+                            ) {
+                                otherContent.classList.remove("open");
+                                otherContent.previousElementSibling.querySelector(
+                                    ".material-icons:last-child",
+                                ).style.transform = "";
+                            }
+                        });
+                });
+            });
+        </script>
+        <script>
+            const gameIdInput = document.getElementById("gameId");
+            const generateBtn = document.getElementById("generateBtn");
+            const errorBox = document.getElementById("errorBox");
+            const errorMsg = document.getElementById("errorMsg");
+            const statusBox = document.getElementById("statusBox");
+            const statusId = document.getElementById("statusId");
+            const downloadBox = document.getElementById("downloadBox");
+            const downloadLink = document.getElementById("downloadLink");
+            const backupDownloadBox =
+                document.getElementById("backupDownloadBox");
+            const backupDownloadLink =
+                document.getElementById("backupDownloadLink");
+            const resetBtn = document.getElementById("resetBtn");
+
+            async function generate() {
+                const gameId = gameIdInput.value.trim();
+
+                // Validate input (must be number, no spaces)
+                if (!/^[0-9]+$/.test(gameId)) {
+                    errorMsg.textContent =
+                        "Game ID must be numbers only (no spaces).";
+                    errorBox.classList.remove("hidden");
+                    return;
+                }
+                errorBox.classList.add("hidden");
+
+                // Disable input and button
+                gameIdInput.disabled = true;
+                generateBtn.disabled = true;
+                generateBtn.textContent = "Generated";
+
+                statusId.textContent = gameId;
+                statusBox.classList.remove("hidden");
+
+                const fileUrl = `https://luafiles.fasthandbd.com/${gameId}.zip`;
+                const backupUrl = `https://codeload.github.com/SteamAutoCracks/ManifestHub/zip/refs/heads/${gameId}`;
+
+                try {
+                    // HEAD request to check file existence
+                    const res = await fetch(fileUrl, { method: "HEAD" });
+                    statusBox.classList.add("hidden");
+
+                    if (res.ok) {
+                        // File exists → show primary download only
+                        downloadBox.classList.remove("hidden");
+                        downloadLink.href = fileUrl;
+                        downloadLink.textContent = `Download ${gameId}.zip`;
+                        backupDownloadBox.classList.add("hidden");
+                    } else {
+                        // Primary file not found, show backup download
+                        downloadBox.classList.remove("hidden");
+                        downloadLink.href = backupUrl;
+                        downloadLink.textContent = `Download ${gameId}.zip`;
+                        backupDownloadBox.classList.add("hidden");
+                    }
+                } catch (err) {
+                    statusBox.classList.add("hidden");
+                    // Primary check failed, provide backup download
+                    downloadBox.classList.remove("hidden");
+                    downloadLink.href = backupUrl;
+                    downloadLink.textContent = `Download ${gameId}.zip`;
+                    backupDownloadBox.classList.add("hidden");
+                }
+            }
+
+            generateBtn.addEventListener("click", generate);
+            gameIdInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter" && !generateBtn.disabled) generate();
+            });
+
+            resetBtn.addEventListener("click", () => {
+                gameIdInput.value = "";
+                gameIdInput.disabled = false;
+                generateBtn.disabled = false;
+                generateBtn.textContent = "Generate";
+                downloadBox.classList.add("hidden");
+                backupDownloadBox.classList.add("hidden");
+                errorBox.classList.add("hidden");
+            });
+        </script>
+    </body>
+</html>
