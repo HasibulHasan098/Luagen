@@ -68,12 +68,12 @@ This architecture makes LuaGen **fast, lightweight, and reliable**.
 
 ## 🔗 Live Demo
 
-👉 [luagen.pages.dev](https://luagen.pages.dev)
+👉 [https://luagen.revobd.club](https://luagen.revobd.club)
 
 ## 📧 Support
 
 For missing files, requests, or issues:
-**Email:** [pocox5proextrime@gmail.com](mailto:pocox5proextrime@gmail.com)
+**Email:** [contact@revobd.club](mailto:contact@revobd.club)
 
 ---
 
